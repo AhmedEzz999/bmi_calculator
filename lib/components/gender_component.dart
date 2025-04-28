@@ -3,9 +3,9 @@ import 'package:bmi_calculator/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class GenderComponent extends StatelessWidget {
-  final GenderModel genderModel;
   const GenderComponent({super.key, required this.genderModel});
-
+  final GenderModel genderModel;
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(

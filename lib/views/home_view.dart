@@ -1,6 +1,7 @@
+import 'dart:math';
+import 'package:bmi_calculator/models/bmi_data.dart';
 import 'package:bmi_calculator/models/gender_model.dart';
 import 'package:bmi_calculator/styles/colors.dart';
-import 'package:bmi_calculator/components/weight_age_button.dart';
 import 'package:bmi_calculator/sections/calculate_button.dart';
 import 'package:bmi_calculator/sections/gender_section.dart';
 import 'package:bmi_calculator/sections/height_section.dart';
@@ -19,19 +20,30 @@ class _HomeViewState extends State<HomeView> {
   double _height = 174;
   int _weight = 60;
   int _age = 29;
+
   void _onGenderChanged (GenderType? gender) => setState(() => _selectedGender = gender);
   void _onHeightChanged (double height) => setState(() => _height = height);
   void _onWeightChanged (int weight) => (setState(() => _weight = weight));
   void _onAgeChanged (int age) => (setState(() => _age = age));
+  
+  double _calculateBmi() {
+    return _weight / pow((_height / 100), 2);
+  }
 
   @override
   Widget build(BuildContext context) {
+    final bmiData = BmiData(
+      gender: _selectedGender,
+      height: _height,
+      weight: _weight,
+      age: _age,
+    );
     return SafeArea(
       top: false,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.primaryColor,
-          title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold)),
+          title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
         ),
         body: Column(
           children: [
@@ -58,7 +70,10 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            CalculateButton()
+            CalculateButton(
+              bmiData: bmiData,
+              onCalculate: _calculateBmi,
+            )
           ],
         ),
       ),

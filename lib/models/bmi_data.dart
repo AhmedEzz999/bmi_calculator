@@ -1,8 +1,8 @@
 import 'package:bmi_calculator/models/gender_model.dart';
 
 class BmiData {
-  final GenderType gender;
-  final int height;
+  final GenderType? gender;
+  final double height;
   final int weight;
   final int age;
 
