@@ -1,10 +1,10 @@
 import 'package:bmi_calculator/models/gender_model.dart';
 import 'package:bmi_calculator/styles/colors.dart';
 import 'package:bmi_calculator/components/weight_age_button.dart';
-import 'package:bmi_calculator/widgets/calculate_button.dart';
-import 'package:bmi_calculator/widgets/gender_section.dart';
-import 'package:bmi_calculator/widgets/height_section.dart';
-import 'package:bmi_calculator/widgets/weight_age_section.dart';
+import 'package:bmi_calculator/sections/calculate_button.dart';
+import 'package:bmi_calculator/sections/gender_section.dart';
+import 'package:bmi_calculator/sections/height_section.dart';
+import 'package:bmi_calculator/sections/weight_age_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -21,6 +21,8 @@ class _HomeViewState extends State<HomeView> {
   int _age = 29;
   void _onGenderChanged (GenderType? gender) => setState(() => _selectedGender = gender);
   void _onHeightChanged (double height) => setState(() => _height = height);
+  void _onWeightChanged (int weight) => (setState(() => _weight = weight));
+  void _onAgeChanged (int age) => (setState(() => _age = age));
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
             Container(
               color: AppColors.primaryColor,
               margin: EdgeInsets.only(),
-              padding: const EdgeInsets.only(top: 10, bottom: 20, right: 15, left: 15),
+              padding: const EdgeInsets.only(top: 5, bottom: 20, right: 15, left: 15),
               child: Column(
                 children: [
                   GenderSection(
@@ -47,7 +49,12 @@ class _HomeViewState extends State<HomeView> {
                     height: _height,
                     onHeightChanged: _onHeightChanged,
                   ),
-                  WeightAgeSection(),
+                  WeightAgeSection(
+                    weightValue: _weight,
+                    ageValue: _age,
+                    onWeightChanged: _onWeightChanged,
+                    onAgeChanged: _onAgeChanged,
+                  ),
                 ],
               ),
             ),

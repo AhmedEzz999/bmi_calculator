@@ -7,7 +7,7 @@ class CalculateButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: 60,
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -15,7 +15,9 @@ class CalculateButton extends StatelessWidget {
           shape: RoundedRectangleBorder(),
           padding: EdgeInsets.all(0),
           minimumSize: Size.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: Colors.transparent,
         ),
         onPressed: (){},
         child: Text('CALCULATE', style: TextStyle(fontSize: 30, color: Colors.white))

@@ -2,7 +2,9 @@ import 'package:bmi_calculator/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class WeightAgeButton extends StatelessWidget {
-  const WeightAgeButton({super.key});
+  const WeightAgeButton({super.key, required this.icon, required this.onPressed});
+  final IconData icon;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,8 @@ class WeightAgeButton extends StatelessWidget {
           splashFactory: NoSplash.splashFactory,
           overlayColor: Colors.transparent,
         ),
-        onPressed: (){}, 
-        child: Icon(Icons.add)
+        onPressed: onPressed,
+        child: Icon(icon)
       );
   }
 }
