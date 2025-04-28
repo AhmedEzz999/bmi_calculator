@@ -15,36 +15,38 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   GenderType? _selectedGender;
-  int _height = 174;
-  // int _weight = 60;
-  // int _age = 29;
+  double _height = 174;
+  int _weight = 60;
+  int _age = 29;
   void _onGenderChanged (GenderType? gender) => setState(() => _selectedGender = gender);
-  void _onHeightChanged (int height) => setState(() => _height = height);
+  void _onHeightChanged (double height) => setState(() => _height = height);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-        title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold)),
-      ),
-      body: Container(
-        color: AppColors.backgroundColor,
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Column(
-            children: [
-              GenderSection(
-                selectedGender: _selectedGender,
-                onGenderChanged: _onGenderChanged,
-              ),
-              SliderComponent(
-                height: _height,
-                onHeightChanged: _onHeightChanged,
-              ),
-              // WeightAgeSection(),
-              // CalculateButton()
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.primaryColor,
+          title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold)),
+        ),
+        body: Container(
+          color: AppColors.primaryColor,
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: Column(
+              children: [
+                GenderSection(
+                  selectedGender: _selectedGender,
+                  onGenderChanged: _onGenderChanged,
+                ),
+                HeightSection(
+                  height: _height,
+                  onHeightChanged: _onHeightChanged,
+                ),
+                WeightAgeSection(),
+                // CalculateButton()
+              ],
+            ),
           ),
         ),
       ),

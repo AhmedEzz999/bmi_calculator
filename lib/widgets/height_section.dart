@@ -1,10 +1,11 @@
+import 'package:bmi_calculator/components/slider_component.dart';
 import 'package:bmi_calculator/styles/colors.dart';
 import 'package:flutter/material.dart';
 
-class SliderComponent extends StatelessWidget {
-  const SliderComponent({super.key, required this.height, required this.onHeightChanged});
-  final int height;
-  final Function(int) onHeightChanged;
+class HeightSection extends StatelessWidget {
+  const HeightSection({super.key, required this.height, required this.onHeightChanged});
+  final double height;
+  final ValueChanged<double> onHeightChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,13 @@ class SliderComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
-              Text('$height', style: TextStyle(fontSize: 60, color: Colors.white, fontWeight: FontWeight.bold)),
-              Text('cm', style: TextStyle(fontSize: 25, color: AppColors.fontColor))
+              Text('${height.toInt()}', style: TextStyle(fontSize: 60, color: Colors.white, fontWeight: FontWeight.bold)),
+              Text('cm', style: TextStyle(fontSize: 25, color: AppColors.fontColor)),
             ],
+          ),
+          SliderComponent(
+            height: height,
+            onHeightChanged: onHeightChanged
           )
         ],
       ),

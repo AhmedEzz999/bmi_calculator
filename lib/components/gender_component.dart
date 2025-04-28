@@ -9,7 +9,7 @@ class GenderComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      height: 200,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: genderModel.isSelected ? AppColors.selectedColor : AppColors.unSelectedColor,

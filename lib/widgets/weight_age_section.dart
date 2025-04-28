@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/weight_age_component.dart';
 import 'package:flutter/material.dart';
 
 class WeightAgeSection extends StatelessWidget {
@@ -5,6 +6,10 @@ class WeightAgeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Row(
+      children: [
+        WeightAgeComponent(),
+      ],
+    );
   }
 }
