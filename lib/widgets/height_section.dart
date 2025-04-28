@@ -10,8 +10,8 @@ class HeightSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 30),
-      padding: EdgeInsets.symmetric(vertical: 30),
+      margin: const EdgeInsets.symmetric(vertical: 25),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       decoration: BoxDecoration(
         color: AppColors.unSelectedColor,
         borderRadius: BorderRadius.circular(20)

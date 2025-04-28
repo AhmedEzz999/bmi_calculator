@@ -15,6 +15,7 @@ class GenderComponent extends StatelessWidget {
           backgroundColor: genderModel.isSelected ? AppColors.selectedColor : AppColors.unSelectedColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           splashFactory: NoSplash.splashFactory,
+          overlayColor: Colors.transparent,
         ),
         onPressed: genderModel.onPressed,
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/models/gender_model.dart';
 import 'package:bmi_calculator/styles/colors.dart';
+import 'package:bmi_calculator/components/weight_age_button.dart';
 import 'package:bmi_calculator/widgets/calculate_button.dart';
 import 'package:bmi_calculator/widgets/gender_section.dart';
 import 'package:bmi_calculator/widgets/height_section.dart';
@@ -24,30 +25,34 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.primaryColor,
           title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold)),
         ),
-        body: Container(
-          color: AppColors.primaryColor,
-          child: Padding(
-            padding: const EdgeInsets.all(18),
-            child: Column(
-              children: [
-                GenderSection(
-                  selectedGender: _selectedGender,
-                  onGenderChanged: _onGenderChanged,
-                ),
-                HeightSection(
-                  height: _height,
-                  onHeightChanged: _onHeightChanged,
-                ),
-                WeightAgeSection(),
-                // CalculateButton()
-              ],
+        body: Column(
+          children: [
+            Container(
+              color: AppColors.primaryColor,
+              margin: EdgeInsets.only(),
+              padding: const EdgeInsets.only(top: 10, bottom: 20, right: 15, left: 15),
+              child: Column(
+                children: [
+                  GenderSection(
+                    selectedGender: _selectedGender,
+                    onGenderChanged: _onGenderChanged,
+                  ),
+                  HeightSection(
+                    height: _height,
+                    onHeightChanged: _onHeightChanged,
+                  ),
+                  WeightAgeSection(),
+                ],
+              ),
             ),
-          ),
+            CalculateButton()
+          ],
         ),
       ),
     );
