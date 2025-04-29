@@ -17,14 +17,17 @@ class ResultView extends StatelessWidget {
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 25),
-          decoration: BoxDecoration(
-            color: const Color(0xff45c7ff)
-          ),
+          decoration: BoxDecoration(color: const Color(0xff45c7ff)),
           child: Column(
             children: [
-              ResultComponent(info: 'Your gender is ${bmiData.gender?.toString().split('.').last ?? 'not selected'}'),
+              ResultComponent(
+                info:
+                    'Your gender is ${bmiData.gender?.toString().split('.').last ?? 'not selected'}',
+              ),
               ResultComponent(info: 'Your age is ${bmiData.age}'),
-              ResultComponent(info: 'Your height is ${bmiData.height.toInt()} cm'),
+              ResultComponent(
+                info: 'Your height is ${bmiData.height.toInt()} cm',
+              ),
               ResultComponent(info: 'Your weight is ${bmiData.weight} kg'),
               ResultComponent(info: 'BMI = ${bmiResult.toStringAsFixed(2)}'),
             ],

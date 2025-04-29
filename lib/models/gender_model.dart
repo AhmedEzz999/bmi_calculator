@@ -13,4 +13,5 @@ class GenderModel {
     required this.onPressed
   });
 }
-  enum GenderType {male, female}
+
+enum GenderType { male, female }

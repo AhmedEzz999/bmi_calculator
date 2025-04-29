@@ -4,7 +4,11 @@ import 'package:bmi_calculator/views/result_view.dart';
 import 'package:flutter/material.dart';
 
 class CalculateButton extends StatelessWidget {
-  const CalculateButton({super.key, required this.bmiData, required this.onCalculate});
+  const CalculateButton({
+    super.key,
+    required this.bmiData,
+    required this.onCalculate
+  });
   final BmiData bmiData;
   final double Function() onCalculate;
 
@@ -23,11 +27,21 @@ class CalculateButton extends StatelessWidget {
           splashFactory: NoSplash.splashFactory,
           overlayColor: Colors.transparent,
         ),
-        onPressed: (){
+        onPressed: () {
           final bmiResult = onCalculate();
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> ResultView(bmiData: bmiData, bmiResult: bmiResult)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) =>
+                      ResultView(bmiData: bmiData, bmiResult: bmiResult),
+            ),
+          );
         },
-        child: Text('CALCULATE', style: TextStyle(fontSize: 30, color: Colors.white))
+        child: Text(
+          'CALCULATE',
+          style: TextStyle(fontSize: 30, color: Colors.white),
+        ),
       ),
     );
   }

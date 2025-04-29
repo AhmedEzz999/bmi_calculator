@@ -12,15 +12,12 @@ class ResultComponent extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xff0a5c9c),
-        borderRadius: BorderRadius.circular(15)
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Text(
         info,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 30,
-          color: Colors.white,
-        ),
+        style: TextStyle(fontSize: 30, color: Colors.white),
       ),
     );
   }

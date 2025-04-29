@@ -21,11 +21,12 @@ class _HomeViewState extends State<HomeView> {
   int _weight = 60;
   int _age = 29;
 
-  void _onGenderChanged (GenderType? gender) => setState(() => _selectedGender = gender);
-  void _onHeightChanged (double height) => setState(() => _height = height);
-  void _onWeightChanged (int weight) => (setState(() => _weight = weight));
-  void _onAgeChanged (int age) => (setState(() => _age = age));
-  
+  void _onGenderChanged(GenderType? gender) =>
+      setState(() => _selectedGender = gender);
+  void _onHeightChanged(double height) => setState(() => _height = height);
+  void _onWeightChanged(int weight) => (setState(() => _weight = weight));
+  void _onAgeChanged(int age) => (setState(() => _age = age));
+
   double _calculateBmi() {
     return _weight / pow((_height / 100), 2);
   }
@@ -43,37 +44,46 @@ class _HomeViewState extends State<HomeView> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.primaryColor,
-          title: const Text('BMI CALCULATOR', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+          title: const Text(
+            'BMI CALCULATOR',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         body: Column(
           children: [
             Container(
               color: AppColors.primaryColor,
               margin: EdgeInsets.only(),
-              padding: const EdgeInsets.only(top: 5, bottom: 20, right: 15, left: 15),
+              padding: const EdgeInsets.only(
+                top: 5,
+                bottom: 20,
+                right: 15,
+                left: 15,
+              ),
               child: Column(
                 children: [
                   GenderSection(
                     selectedGender: _selectedGender,
-                    onGenderChanged: _onGenderChanged,
+                    onGenderChanged: _onGenderChanged
                   ),
                   HeightSection(
                     height: _height,
-                    onHeightChanged: _onHeightChanged,
+                    onHeightChanged: _onHeightChanged
                   ),
                   WeightAgeSection(
                     weightValue: _weight,
                     ageValue: _age,
                     onWeightChanged: _onWeightChanged,
-                    onAgeChanged: _onAgeChanged,
+                    onAgeChanged: _onAgeChanged
                   ),
                 ],
               ),
             ),
-            CalculateButton(
-              bmiData: bmiData,
-              onCalculate: _calculateBmi,
-            )
+            CalculateButton(bmiData: bmiData, onCalculate: _calculateBmi)
           ],
         ),
       ),

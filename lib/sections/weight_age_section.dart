@@ -8,7 +8,7 @@ class WeightAgeSection extends StatelessWidget {
     required this.weightValue,
     required this.ageValue,
     required this.onWeightChanged,
-    required this.onAgeChanged,
+    required this.onAgeChanged
   });
   final int weightValue;
   final int ageValue;
@@ -25,19 +25,19 @@ class WeightAgeSection extends StatelessWidget {
             text: 'WEIGHT',
             currentValue: weightValue,
             minValue: 20,
-            maxValue: 250
+            maxValue: 250,
           ),
-          onValueChanged: onWeightChanged
+          onValueChanged: onWeightChanged,
         ),
         WeightAgeComponent(
           model: WeightAgeModel(
             text: 'AGE',
             currentValue: ageValue,
             minValue: 5,
-            maxValue: 125
+            maxValue: 125,
           ),
-          onValueChanged: onAgeChanged
-        )
+          onValueChanged: onAgeChanged,
+        ),
       ],
     );
   }
